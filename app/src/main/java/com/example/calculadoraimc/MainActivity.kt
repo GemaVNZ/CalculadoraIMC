@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var manusButton: Button
     lateinit var calculateButton: Button
 
-    var height:Int = 150
-    var weight:Int = 80
+    var height: Float = 150.0F
+    var weight: Float = 80.0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,20 +55,38 @@ class MainActivity : AppCompatActivity() {
         }
 
         calculateButton.setOnClickListener {
-            height = heightEditText.text.toString().toInt()
-            val result = weight / (height/100f).pow(2)
-            resultTextView.text= result.toString()
+            height = heightEditText.text.toString().toFloat()
+            val result = weight / (height / 100f).pow(2)
+            resultTextView.text = result.toString()
 
         }
+
 
     }
 
-        fun setHeight() {
-            heightEditText.setText(height.toString())
-        }
-
-        fun setWeight() {
-            weightTextView.text="$weight KG"
-        }
-
+    fun setHeight() {
+        heightEditText.setText(height.toString())
     }
+
+    fun setWeight() {
+        weightTextView.text = "$weight KG"
+    }
+
+    /*fun calcularIMC() {
+        //height = heightEditText.text.toString().toFloat()
+        val result = weight / (height / 100f).pow(2)
+        resultTextView.text = result.toString()
+
+        val descriptionResult:String?
+        val descriptionColor:Int?
+        when(result) {
+            in 0.0..18.5 -> {
+                descriptionResult = getString(R.string.under_weight)
+                descriptionColor = getColor(R.color.under_weight_color)
+            } */
+
+
+}
+
+
+
