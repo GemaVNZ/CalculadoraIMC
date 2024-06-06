@@ -17,22 +17,22 @@
         android:orientation="horizontal">
 
         <EditText
-                android:id="@+id/HeightEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:inputType="number"
-                android:text="0"
-                android:layout_weight="1"/>
+            android:id="@+id/HeightEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:inputType="number"
+            android:text="0"
+            android:layout_weight="1"/>
 
-            <TextView
-                android:id="@+id/HeightTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="cm"
-                android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/HeightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cm"
+            android:textSize="24sp"/>
 
-        </LinearLayout>
+    </LinearLayout>
 
     <!--Peso-->
 
