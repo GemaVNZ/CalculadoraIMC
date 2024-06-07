@@ -3,9 +3,9 @@
 
     <string name="calculadora_imc">Calculadora IMC</string>
     <string name="altura">0</string>
-    <string name="centímetros">cm</string>
+    <string name="height_text">%1$s cm</string>
     <string name="introduce_tu_peso">Introduce tu peso</string>
-    <string name="peso">0 KG</string>
+    <string name="weight_text">%1$s KG</string>
     <string name="calcular">Calcular</string>
     <string name="under_weight">Bajo peso</string>
     <string name="normal_weight">Peso saludable</string>

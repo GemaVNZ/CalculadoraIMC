@@ -26,18 +26,16 @@ class MainActivity : AppCompatActivity() {
     //Función calcular
     lateinit var calculateButton: Button
 
+    //Resultados
     lateinit var descriptionTextView: TextView
     lateinit var resultTextView: TextView
 
     var height: Float = 100.0F
-    var weight: Float = 80.0F
+    var weight: Float = 65.0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //Se va a la vista del componente para buscar el id que le hemos indicado. Buscamos una referencia al componente de la vista. Ya podríamos programarlo.
-        //Solamente damos ID cuando queramos programarlo.
 
         //heightEditText = findViewById(R.id.heightEditText)
         heightTextView = findViewById(R.id.heightTextView)
@@ -49,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         heightSlider = findViewById(R.id.heightSlider)
         calculateButton = findViewById(R.id.calculateButton)
 
-        heightSlider.value= height
 
+        heightSlider.value= height
         setHeight()
         setWeight()
 
@@ -67,7 +65,6 @@ class MainActivity : AppCompatActivity() {
         manusButton.setOnClickListener {
             weight++
             setWeight()
-
         }
 
         calculateButton.setOnClickListener {
@@ -109,12 +106,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setHeight() {
-
-        heightTextView.text= " $height cm"
+        heightTextView.text= getString(R.string.height_text, height)
     }
 
     fun setWeight() {
-        weightTextView.text = "$weight KG"
+        weightTextView.text = getString(R.string.weight_text,weight )
     }
 
 }
