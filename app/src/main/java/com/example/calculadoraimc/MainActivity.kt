@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import org.w3c.dom.Text
+import java.text.DecimalFormat
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -55,12 +56,40 @@ class MainActivity : AppCompatActivity() {
         }
 
         calculateButton.setOnClickListener {
+
             height = heightEditText.text.toString().toFloat()
             val result = weight / (height / 100f).pow(2)
-            resultTextView.text = result.toString()
 
+            val decimalFormat = DecimalFormat("#.##")
+            resultTextView.text = decimalFormat.format(result)
+
+            val description : String?
+            val descriptionColor: Int?
+
+            when (result) {
+                in 0.0f..18.5f -> {
+                    description = getString(R.string.under_weight)
+                    descriptionColor = getColor(R.color.under_weight_color)
+                }
+                in 18.5f .. 25f -> {
+                    description = getString(R.string.normal_weight)
+                    descriptionColor = getColor(R.color.normal_weight_color)
+                }
+                in 25f .. 30.0f -> {
+                    description = getString(R.string.over_weight)
+                    descriptionColor = getColor(R.color.over_weight_color)
+                }
+
+                else -> {
+                    description = getString(R.string.obesity)
+                    descriptionColor = getColor(R.color.obesity_weight_color)
+                }
+
+            }
+                descriptionTextView.text = description
+                descriptionTextView.setTextColor(descriptionColor)
+                resultTextView.setTextColor(descriptionColor)
         }
-
 
     }
 
@@ -71,20 +100,6 @@ class MainActivity : AppCompatActivity() {
     fun setWeight() {
         weightTextView.text = "$weight KG"
     }
-
-    /*fun calcularIMC() {
-        //height = heightEditText.text.toString().toFloat()
-        val result = weight / (height / 100f).pow(2)
-        resultTextView.text = result.toString()
-
-        val descriptionResult:String?
-        val descriptionColor:Int?
-        when(result) {
-            in 0.0..18.5 -> {
-                descriptionResult = getString(R.string.under_weight)
-                descriptionColor = getColor(R.color.under_weight_color)
-            } */
-
 
 }
 
