@@ -106,11 +106,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setHeight() {
-        heightTextView.text= getString(R.string.height_text, height)
+        heightTextView.text= getString(R.string.height_text, height.toInt())
     }
 
     fun setWeight() {
-        weightTextView.text = getString(R.string.weight_text,weight )
+        weightTextView.text = getString(R.string.weight_text, weight.toInt())
     }
 
 }
