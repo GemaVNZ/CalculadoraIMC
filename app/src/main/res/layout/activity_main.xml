@@ -26,35 +26,36 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="20dp">
 
-        <EditText
+        <!-- <EditText
             android:id="@+id/heightEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:text="@string/altura"
             android:layout_weight="1"
-            android:layout_margin="20dp"/>
+            android:layout_margin="20dp"/> -->
 
             <TextView
-            android:id="@+id/HeightTextView"
-            android:layout_width="0dp"
+            android:id="@+id/heightTextView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/centímetros"
             android:textSize="20sp"
-            android:layout_weight="1"/>
+            android:textAlignment="center"/>
 
-       <!--  <com.google.android.material.slider.Slider
+       <com.google.android.material.slider.Slider
             android:id="@+id/heightSlider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:labelBehavior="gone"
             app:tickVisible="false"
-            android:valueFrom="100"
-            android:valueTo="240"
-            android:stepSize="5"/> -->
+            android:valueFrom="100.0"
+            android:valueTo="240.0"
+            android:stepSize="1.0"
+            android:value="100"/>
 
     </LinearLayout>
 

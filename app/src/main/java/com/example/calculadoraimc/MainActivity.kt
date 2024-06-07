@@ -7,21 +7,29 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import com.google.android.material.slider.Slider
 import org.w3c.dom.Text
 import java.text.DecimalFormat
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var heightEditText: EditText
+    //Altura
+    lateinit var heightTextView: TextView
+    lateinit var heightSlider : Slider
+
+    //Peso
     lateinit var weightTextView: TextView
-    lateinit var descriptionTextView: TextView
-    lateinit var resultTextView: TextView
     lateinit var minusButton: Button
     lateinit var manusButton: Button
+
+    //Función calcular
     lateinit var calculateButton: Button
 
-    var height: Float = 150.0F
+    lateinit var descriptionTextView: TextView
+    lateinit var resultTextView: TextView
+
+    var height: Float = 100.0F
     var weight: Float = 80.0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,23 +39,30 @@ class MainActivity : AppCompatActivity() {
         //Se va a la vista del componente para buscar el id que le hemos indicado. Buscamos una referencia al componente de la vista. Ya podríamos programarlo.
         //Solamente damos ID cuando queramos programarlo.
 
-        heightEditText = findViewById(R.id.heightEditText)
+        //heightEditText = findViewById(R.id.heightEditText)
+        heightTextView = findViewById(R.id.heightTextView)
         weightTextView = findViewById(R.id.weightTextView)
         descriptionTextView = findViewById(R.id.descriptionTextView)
-        resultTextView = findViewById(R.id.descriptionTextView)
+        resultTextView = findViewById(R.id.resultTextView)
         minusButton = findViewById(R.id.minusButton)
         manusButton = findViewById(R.id.manusButton)
+        heightSlider = findViewById(R.id.heightSlider)
         calculateButton = findViewById(R.id.calculateButton)
+
+        heightSlider.value= height
 
         setHeight()
         setWeight()
 
+        heightSlider.addOnChangeListener { _, value, _ ->
+            height = value
+            setHeight()
+        }
 
         minusButton.setOnClickListener {
             weight--
             setWeight()
         }
-
 
         manusButton.setOnClickListener {
             weight++
@@ -57,9 +72,9 @@ class MainActivity : AppCompatActivity() {
 
         calculateButton.setOnClickListener {
 
-            height = heightEditText.text.toString().toFloat()
-            val result = weight / (height / 100f).pow(2)
+            //height = heightEditText.text.toString().toFloat()
 
+            val result = weight / (height / 100f).pow(2)
             val decimalFormat = DecimalFormat("#.##")
             resultTextView.text = decimalFormat.format(result)
 
@@ -94,7 +109,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setHeight() {
-        heightEditText.setText(height.toString())
+
+        heightTextView.text= " $height cm"
     }
 
     fun setWeight() {
