@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var descriptionTextView: TextView
     lateinit var resultTextView: TextView
 
+    //Variables para iniciar la aplicación
+
     var height: Float = 100.0F
     var weight: Float = 65.0F
 
@@ -38,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //heightEditText = findViewById(R.id.heightEditText)
+
+        //Método para obtener los diversos componentes de la aplicación
         heightTextView = findViewById(R.id.heightTextView)
         weightTextView = findViewById(R.id.weightTextView)
         descriptionTextView = findViewById(R.id.descriptionTextView)
@@ -67,10 +71,9 @@ class MainActivity : AppCompatActivity() {
             setWeight()
         }
 
+
         calculateButton.setOnClickListener {
-
             //height = heightEditText.text.toString().toFloat()
-
             val result = weight / (height / 100f).pow(2)
             val decimalFormat = DecimalFormat("#.##")
             resultTextView.text = decimalFormat.format(result)
@@ -106,11 +109,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setHeight() {
-        heightTextView.text= getString(R.string.height_text, height.toInt())
+        heightTextView.text= getString(R.string.height_text, height.toFloat())
     }
 
     fun setWeight() {
-        weightTextView.text = getString(R.string.weight_text, weight.toInt())
+        weightTextView.text = getString(R.string.weight_text, weight.toFloat())
     }
 
 }
